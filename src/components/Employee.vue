@@ -1,6 +1,10 @@
 <template>
   <div class="employees">
     <h1 style="color: greenyellow;">Employees List</h1>
+    <div class="search-bar">
+      <input type="text" v-model="searchQuery" placeholder="Search employee" @input="searchEmployees">
+      
+    </div>
     <table>
       <thead>
         <tr>
@@ -31,7 +35,8 @@ export default {
   name: 'Employees',
   data() {
     return {
-      employees: []
+      employees: [],
+      searchQuery: '', 
     };
   },
   created() {
@@ -50,8 +55,23 @@ export default {
         console.error('Error fetching employees:', error);
         alert('Error fetching employees: ' + error.message);
       }
-    }
+    },
+    searchEmployees() {
+  const query = this.searchQuery.toLowerCase();
+  if (!query) {
+    this.fetchEmployees();
+    return;
   }
+  this.employees = this.employees.filter(employee => {
+    return (
+      employee.firstName.toLowerCase().includes(query) ||
+      employee.lastName.toLowerCase().includes(query) ||
+      employee.email.toLowerCase().includes(query)
+    );
+  });
+},
+  
+  },
 };
 </script>
 
@@ -76,18 +96,36 @@ th, td {
   padding: 10px;
   border: 1px solid whitesmoke;
   text-align: left;
+  color: white;
 }
 
 th {
   background-color: black;
+  color: palevioletred;
+}
+
+.search-bar {
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 1.4rem;
+}
+
+.search-bar button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: black;
-}
-
-tbody tr:nth-child(even) {
-  background-color: black;
+.search-bar button:hover {
+  background-color: #0056b3;
 }
 </style>
