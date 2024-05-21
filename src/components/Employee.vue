@@ -130,7 +130,7 @@ th, td {
 }
 
 th {
-  background-color: b;
+  background-color: black;
   color: white;
 }
 
