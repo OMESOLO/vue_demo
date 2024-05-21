@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Employees from '@/components/Employee.vue';
 import AddEmployee from '@/components/AddEmployeeForm.vue';
 
+
 const routes = [
 
   {
@@ -17,7 +18,8 @@ const routes = [
     path: '/addemployee',
     name: 'AddEmployee',
     component: AddEmployee
-  }
+  },
+
 ];
 
 const router = createRouter({

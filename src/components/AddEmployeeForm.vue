@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 style="color: greenyellow;">Add Employee</h1>
+  <div class="add-employee-container">
+    <h1 class="add-employee-title">Add Employee</h1>
     <form @submit.prevent="addEmployee" class="form-horizontal">
 
       <div class="form-group">
@@ -78,17 +78,28 @@ export default {
 </script>
 
 <style scoped>
+.add-employee-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: whitesmoke;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-employee-title {
+  color: rgb(237, 101, 101);
+  text-align: center;
+}
+
 .form-horizontal {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 800px;
-  margin: auto;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 15px;
   width: 48%; 
 }
@@ -99,6 +110,7 @@ export default {
 
 label {
   margin-bottom: 5px;
+  color: black;
 }
 
 input[type="text"],
@@ -107,7 +119,7 @@ select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 16px;
 }
 
 button {

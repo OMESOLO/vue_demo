@@ -13,7 +13,6 @@
             <router-link class="navbar-item" to="/employees">Employees</router-link>
             <router-link class="navbar-item" to="/addemployee">AddEmployee</router-link>
           </div>
-         
         </div>
       </div>
     </nav>
