@@ -32,6 +32,7 @@
       </div>
 
       <div class="form-group full-width">
+        <router-link to="/employees" class="back-btn">Back to Employees List</router-link>
         <button type="submit">Add Employee</button>
       </div>
     </form>
@@ -125,7 +126,7 @@ select {
 button {
   background-color: #4CAF50;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -135,4 +136,19 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
+.back-btn {
+  padding: 7px 20px;
+  border: 2px solid red;
+  background-color: rgb(223, 64, 64);
+  color: whitesmoke;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 55%;
+}
+
+.back-btn:hover {
+  background-color: rgb(223, 64, 64);
+}
+
 </style>

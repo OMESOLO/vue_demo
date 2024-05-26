@@ -8,7 +8,10 @@
       </select>
       <input type="text" v-model="searchQuery" placeholder="Search Employee" class="search-input">
     </div>
-    <table >
+    <div class="button-container">
+      <router-link class="add-employee-btn" to="/addemployee">Add Employee</router-link>
+    </div>
+    <table>
       <thead>
         <tr>
           <th>FirstName</th>
@@ -27,17 +30,15 @@
           <td>{{ employee.gender }}</td>
           <td>{{ employee.departmentName }}</td>
           <td>{{ employee.projectName }}</td>
+
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 
-
-
 <script>
 export default {
-  
   name: 'Employee',
   data() {
     return {
@@ -81,7 +82,6 @@ export default {
   },
   computed: {
     filteredEmployees() {
-      
       const query = this.searchQuery.toLowerCase();
       const selectedDepartment = this.searchDepartment.toLowerCase();
       return this.employees.filter(employee => {
@@ -96,9 +96,8 @@ export default {
 
 <style scoped>
 .employees {
-  
   width: 1280px; 
-  padding: 20px;
+  padding: 15px;
   display: flex;
   background-color: whitesmoke;
   border: 1px solid #ddd;
@@ -106,7 +105,7 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex-direction: column;
   align-items: center;
-  
+  margin-top: 100px;
 }
 
 h1 {
@@ -146,7 +145,6 @@ tbody tr:hover {
   background-color: #ddd;
 }
 
-
 .search-box {
   margin-bottom: 20px;
   position: relative;
@@ -175,5 +173,25 @@ tbody tr:hover {
   color: #777;
 }
 
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-right: 74%;
+}
 
+.add-employee-btn {
+  padding: 10px 20px;
+  border: 2px solid #4CAF50;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 175px; 
+}
+
+.add-employee-btn:hover {
+  background-color: #45a049;
+}
 </style>

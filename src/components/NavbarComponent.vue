@@ -11,7 +11,9 @@
         <div id="navbar-menu-container">
           <div class="navbar-menu">
             <router-link class="navbar-item" to="/employees">Employees</router-link>
-            <router-link class="navbar-item" to="/addemployee">AddEmployee</router-link>
+            <router-link class="navbar-item" to="/departments">Departments</router-link>
+            <router-link class="navbar-item" to="/projects">Projects</router-link>
+            
           </div>
         </div>
       </div>
