@@ -10,6 +10,8 @@
       </div>
       <div class="add-project-btn-container">
         <router-link class="add-project-btn" to="/addproject">Add Project</router-link>
+        <router-link class="update-project-btn" to="/updateproject">Update Project</router-link>
+        <router-link class="delete-project-btn" to="/deleteproject">Delete Project</router-link>
       </div>
       <table >
         <thead>
@@ -194,6 +196,36 @@
 }
 
 .add-project-btn:hover {
+  background-color: #45a049;
+}
+
+.update-project-btn {
+  padding: 10px 20px;
+  border: 2px solid #4CAF50;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 2%;
+}
+
+.update-project-btn:hover {
+  background-color: #45a049;
+}
+
+.delete-project-btn {
+  padding: 10px 20px;
+  border: 2px solid #4CAF50;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 2%;
+}
+
+.delete-project-btn:hover {
   background-color: #45a049;
 }
   

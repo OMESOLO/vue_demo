@@ -10,6 +10,8 @@
       </div>
       <div class="add-department-btn-container">
         <router-link class="add-department-btn" to="/adddepartment">Add Department</router-link>
+        <router-link class="Update-department-btn" to="/Updatedepartment">Update Department</router-link>
+        <router-link class="delete-department-btn" to="/deletedepartment">Delete Department</router-link>
       </div>
       <table >
         <thead>
@@ -160,20 +162,52 @@ tbody tr:hover {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-  margin-right: 87%;
+  margin-right: 60%;
 }
 
 .add-department-btn {
-  padding: 10px 20px;
+  padding: 8px 16px;
   border: 2px solid #4CAF50;
   background-color: #4CAF50;
   color: white;
   border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
+  
+ 
 }
 
 .add-department-btn:hover {
+  background-color: #45a049;
+}
+
+.Update-department-btn {
+  padding: 8px 16px;
+  border: 2px solid #4CAF50;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 8%;
+}
+
+.Update-department-btn:hover {
+  background-color: #45a049;
+}
+
+.delete-department-btn {
+  padding: 8px 16px;
+  border: 2px solid #4CAF50;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 8%;
+}
+
+.delete-department-btn:hover {
   background-color: #45a049;
 }
 </style>

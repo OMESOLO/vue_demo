@@ -5,7 +5,12 @@ import Departments from '@/components/Department.vue';
 import Projects from '@/components/Project.vue';
 import AddDepartment from '@/components/AddDepartmentForm.vue'
 import AddProject from '@/components/AddProjectForm.vue'
-
+import UpdateEmployee from '@/components/UpdateEmployee.vue';
+import UpdateDepartment from '@/components/UpdateDepartment.vue';
+import UpdateProject from '@/components/UpdateProject.vue';
+import DeleteEmployee from '@/components/DeleteEmployee.vue';
+import DeleteDepartment from '@/components/DeleteDepartment.vue';
+import DeleteProject from '@/components/DeleteProject.vue';
 
 
 const routes = [
@@ -48,6 +53,42 @@ const routes = [
     name: 'AddProject',
     component: AddProject
   },
+
+  {
+    path: '/updateemployee',
+    name: 'UpdateEmployee',
+    component: UpdateEmployee
+  },
+
+  {
+    path: '/updatedepartment', 
+    name: 'UpdateDepartment',
+    component: UpdateDepartment
+  },
+
+  {
+    path: '/updateproject',
+    name: 'UpdateProject',
+    component: UpdateProject
+  },
+
+  {
+    path: '/deleteemployee', 
+    name: 'DeleteEmployee',
+    component: DeleteEmployee
+  },
+
+  {
+    path: '/deletedepartment', 
+    name: 'DeleteDepartment',
+    component: DeleteDepartment
+  },
+
+  {
+    path: '/deleteproject', 
+    name: 'DeleteProject',
+    component: DeleteProject
+  }
 
  
 

@@ -10,6 +10,8 @@
     </div>
     <div class="button-container">
       <router-link class="add-employee-btn" to="/addemployee">Add Employee</router-link>
+      <router-link class="Update-employee-btn" to="/updateemployee">Update Employee</router-link>
+      <router-link class="delete-employee-btn" to="/deleteemployee">Delete Employee</router-link>
     </div>
     <table>
       <thead>
@@ -20,6 +22,8 @@
           <th>Gender</th>
           <th>DepartmentName</th>
           <th>ProjectName</th>
+          <th>JobTitle</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -30,6 +34,7 @@
           <td>{{ employee.gender }}</td>
           <td>{{ employee.departmentName }}</td>
           <td>{{ employee.projectName }}</td>
+          <td>{{ employee.jobTitle }}</td>
 
         </tr>
       </tbody>
@@ -177,7 +182,7 @@ tbody tr:hover {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-  margin-right: 74%;
+  margin-right: 70%;
 }
 
 .add-employee-btn {
@@ -188,10 +193,40 @@ tbody tr:hover {
   border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
-  margin-right: 175px; 
+  margin-right: 10px; 
 }
 
 .add-employee-btn:hover {
+  background-color: #45a049;
+}
+
+.Update-employee-btn {
+  padding: 10px 20px;
+  border: 2px solid #4CAF50;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.Update-employee-btn:hover {
+  background-color: #45a049;
+}
+
+.delete-employee-btn {
+  padding: 10px 20px;
+  border: 2px solid #4CAF50;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  
+}
+
+.delete-employee-btn:hover {
   background-color: #45a049;
 }
 </style>

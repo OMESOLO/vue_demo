@@ -24,7 +24,7 @@
         </div>
     
         <div class="form-group full-width">
-          <router-link to="/departments" class="back-btn">Back to Projects List</router-link>
+          <router-link to="/projects" class="back-btn">Back to Projects List</router-link>
           <button type="submit">Add Project</button>
   
           

@@ -25,6 +25,11 @@
           <option value="female">Female</option>
         </select>
       </div>
+
+      <div class="form-group">
+        <label for="jobtitle">JobTitle</label>
+        <input type="text" id="jobtitle" v-model="employee.jobTitle" required>
+      </div>
   
       <div class="form-group">
         <label for="departmentid">Department ID</label>
