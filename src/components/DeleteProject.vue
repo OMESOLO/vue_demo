@@ -97,7 +97,7 @@
     color: whitesmoke;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: px;
+    margin-top: 20px;
   }
   
   .back-btn:hover {

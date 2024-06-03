@@ -1,44 +1,49 @@
 <template>
   <div class="add-employee-container">
-    <h1 class="add-employee-title">Add Employee</h1>
+    <h1 class="add-employee-title">Add Employees</h1>
     <form @submit.prevent="addEmployee" class="form-horizontal">
 
-      <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" id="firstName" v-model="employee.firstName" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" v-model="employee.lastName" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" v-model="employee.email" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="gender">Gender</label>
-        <select id="gender" v-model="employee.gender" required>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
+      <div v-for="(emp, index) in employees" :key="index" class="employee-form">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" :id="'firstName' + index" v-model="emp.firstName" required>
+        </div>
 
-      <div class="form-group">
-        <label for="jobtitle">JobTitle</label>
-        <input type="text" id="jobtitle" v-model="employee.jobTitle" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="departmentid">Department ID</label>
-        <input type="text" id="departmentid" v-model="employee.departmentid" required>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" :id="'lastName' + index" v-model="emp.lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" :id="'email' + index" v-model="emp.email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select :id="'gender' + index" v-model="emp.gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="jobtitle">Job Title</label>
+          <input type="text" :id="'jobtitle' + index" v-model="emp.jobTitle" required>
+        </div>
+
+        <div class="form-group">
+          <label for="departmentid">Department ID</label>
+          <input type="text" :id="'departmentid' + index" v-model="emp.departmentid" required>
+        </div>
+
+        <button type="button" @click="removeEmployee(index)">Remove Employee</button>
       </div>
 
       <div class="form-group full-width">
         <router-link to="/employees" class="back-btn">Back to Employees List</router-link>
-        <button type="submit">Add Employee</button>
+        <button type="submit">Add Employees</button>
+        <button type="button" @click="addEmployeeForm">Add Another Employee</button>
       </div>
     </form>
   </div>
@@ -48,36 +53,68 @@
 export default {
   data() {
     return {
-      employee: {
+      employees: [
+        {
+          firstName: '',
+          lastName: '',
+          email: '',
+          gender: '',
+          jobTitle: '',
+          departmentid: ''
+        }
+      ]
+    };
+  },
+  methods: {
+    addEmployeeForm() {
+      this.employees.push({
         firstName: '',
         lastName: '',
         email: '',
         gender: '',
-        departmentid: ''  
-      }
-    };
-  },
-  methods: {
+        jobTitle: '',
+        departmentid: ''
+      });
+    },
+    removeEmployee(index) {
+      this.employees.splice(index, 1);
+    },
     addEmployee() {
+      const valid = this.validateInputData();
+      if (!valid) {
+        alert('Please fill in all fields before adding employees.');
+        return;
+      }
+
       fetch('http://localhost:5069/api/Employee/AddEmployee', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(this.employee)
+        body: JSON.stringify(this.employees)
       })
       .then(response => {
         if (!response.ok) {
-          throw new Error('Failed to add employee');
+          throw new Error('Failed to add employees');
         }
         return response.json();
       })
       .then(data => {
-        console.log('Employee added:', data);
+        console.log('Employees added:', data);
+        // Optionally reset form or navigate to another page
       })
       .catch(error => {
-        console.error('Error adding employee:', error);
+        console.error('Error adding employees:', error);
+        alert('An error occurred while adding employees.');
       });
+    },
+    validateInputData() {
+      for (const emp of this.employees) {
+        if (!emp.firstName || !emp.lastName || !emp.email || !emp.gender || !emp.jobTitle || !emp.departmentid) {
+          return false;
+        }
+      }
+      return true;
     }
   }
 };
@@ -87,6 +124,7 @@ export default {
 .add-employee-container {
   max-width: 800px;
   margin: auto;
+  margin-top: 15%;
   padding: 20px;
   background-color: whitesmoke;
   border: 1px solid #ddd;
@@ -105,9 +143,16 @@ export default {
   justify-content: space-between;
 }
 
+.employee-form {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
 .form-group {
   margin-bottom: 15px;
-  width: 48%; 
+  width: 100%; 
 }
 
 .form-group.full-width {
@@ -155,5 +200,4 @@ button:hover {
 .back-btn:hover {
   background-color: rgb(223, 64, 64);
 }
-
 </style>

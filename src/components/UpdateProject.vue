@@ -106,13 +106,14 @@
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
+    background-color: green;
     color: #fff;
     cursor: pointer;
+    margin-bottom: 5%;
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: rgb(50, 177, 57);
   }
   
   .back-btn {
